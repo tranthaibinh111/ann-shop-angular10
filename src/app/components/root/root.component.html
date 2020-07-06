@@ -1,0 +1,61 @@
+<app-spinner></app-spinner>
+
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" [ngClass]="{'show-sidebar': config.showMobileMenu}" [dir]="config.options.dir"
+  [attr.data-theme]="config.options.theme" [attr.data-layout]="config.options.layout" [attr.data-sidebartype]="config.options.sidebartype"
+  [attr.data-sidebar-position]="config.options.sidebarpos" [attr.data-header-position]="config.options.headerpos"
+  [attr.data-boxed-layout]="config.options.boxed">
+  <!-- ============================================================== -->
+  <!-- Topbar header - style you can find in topbar.scss -->
+  <!-- ============================================================== -->
+  <header class="topbar" [attr.data-navbarbg]="config.options.navbarbg">
+    <app-header [config]="config"></app-header>
+  </header>
+  <!-- ============================================================== -->
+  <!-- End Topbar header - style you can find in topbar.scss -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Left Sidebar - style you can find in sidebar.scss  -->
+  <!-- ============================================================== -->
+  <aside class="left-sidebar" [attr.data-sidebarbg]="config.options.sidebarbg" (mouseover)="Logo()" (mouseout)="Logo()">
+    <app-menu></app-menu>
+  </aside>
+  <!-- ============================================================== -->
+  <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Page wrapper  -->
+  <!-- ============================================================== -->
+  <div class="page-wrapper">
+    <!-- <app-breadcrumb></app-breadcrumb> -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <router-outlet></router-outlet>
+      <!-- ============================================================== -->
+      <!-- End Start Page Content -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer">
+      © 2020 - Bản quyền của shop ANN
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Page wrapper  -->
+  <!-- ============================================================== -->
+</div>
