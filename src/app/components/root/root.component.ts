@@ -1,11 +1,14 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
-// Enum
+// enum
 import { BackgroundType, BoxedType, DirectionType, PositionType, SideBarType, ThemeType } from '../../shared/interfaces/UI/options';
 
-// Interfaces
+// interfaces
 import { Config } from '../../shared/interfaces/UI/config';
+
+// services
+import { RootService } from '../../shared/services/root.service';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +36,13 @@ export class RootComponent implements OnInit {
     }
   };
 
-  constructor(public router: Router) { }
+  constructor(
+    public root: RootService,
+    public router: Router,
+    public route: ActivatedRoute
+  ) {
+    this.root.path = this.router.createUrlTree(['./'], {relativeTo: route}).toString();
+  }
 
   ngOnInit(): void {
     if (this.router.url === '/') {
